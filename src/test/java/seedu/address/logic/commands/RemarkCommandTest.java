@@ -105,13 +105,14 @@ public class RemarkCommandTest {
         assertCommandFailure(remarkCommand, model, Messages.MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
     }
 
-
     @Test
     public void equals() {
-        final RemarkCommand standardCommand = new RemarkCommand(INDEX_FIRST_PERSON, new Remark(VALID_REMARK_AMY));
+        final RemarkCommand standardCommand = new RemarkCommand(INDEX_FIRST_PERSON,
+                new Remark(VALID_REMARK_AMY));
 
         // same values -> returns true
-        RemarkCommand commandWithSameValues = new RemarkCommand(INDEX_FIRST_PERSON, new Remark(VALID_REMARK_AMY));
+        RemarkCommand commandWithSameValues = new RemarkCommand(INDEX_FIRST_PERSON,
+                new Remark(VALID_REMARK_AMY));
         assertTrue(standardCommand.equals(commandWithSameValues));
 
         // same object -> returns true
@@ -124,9 +125,11 @@ public class RemarkCommandTest {
         assertFalse(standardCommand.equals(new ClearCommand()));
 
         // different index -> returns false
-        assertFalse(standardCommand.equals(new RemarkCommand(INDEX_SECOND_PERSON, new Remark(VALID_REMARK_AMY))));
+        assertFalse(standardCommand.equals(new RemarkCommand(INDEX_SECOND_PERSON,
+                new Remark(VALID_REMARK_AMY))));
 
         // different remark -> returns false
-        assertFalse(standardCommand.equals(new RemarkCommand(INDEX_FIRST_PERSON, new Remark(VALID_REMARK_BOB))));
+        assertFalse(standardCommand.equals(new RemarkCommand(INDEX_FIRST_PERSON,
+                new Remark(VALID_REMARK_BOB))));
     }
 }
